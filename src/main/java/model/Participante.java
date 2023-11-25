@@ -5,20 +5,27 @@ import lombok.*;
 import java.util.List;
 
 @Data
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 public class Participante {
 
     private String Nombre;
     private List<Pronostico> listaDePronosticos;
-    private int puntos = 0;
+    private int puntos;
+    private boolean acertoTodosLosPartidosXFase = true;
 
-
-    public void sumarPunto(){
-        this.puntos++;
+    public boolean acertoTodosLosPartidosXFase() {
+        return acertoTodosLosPartidosXFase;
     }
 
+    public void setAcertoTodosLosPartidosXFase(boolean acertoTodosLosPartidosXFase) {
+        this.acertoTodosLosPartidosXFase = acertoTodosLosPartidosXFase;
+    }
+
+    public void puntosExtraXRonda(){
+        this.puntos += 5;
+    }
+    public void puntosExtraXFase(){
+        this.puntos += 10;
+    }
 }

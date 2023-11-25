@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="TPI-UTN" />
         <module name="TPI_UTN_EQUIPO_I" />
       </profile>
     </annotationProcessing>

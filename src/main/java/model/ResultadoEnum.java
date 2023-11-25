@@ -1,5 +1,5 @@
 package model;
 
-public enum ResutladoEnum {
+public enum ResultadoEnum {
     GANADOR, PERDEDOR, EMPATE;
 }

@@ -4,19 +4,19 @@ import lombok.NoArgsConstructor;
 import service.ProdeService;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
-@NoArgsConstructor
 public class ProdeController {
 
-    private ProdeService prodeService = new ProdeService();
+    private final ProdeService prodeService;
 
-    public void juego(String archivoPronosticos, String archivoResultados) throws FileNotFoundException {
-        List<String> mensaje = prodeService.juego(archivoPronosticos, archivoResultados);
+    public ProdeController(ProdeService prodeService){
+        this.prodeService = prodeService;
+    }
 
-        for (String msj : mensaje){
-            System.out.println(msj);
-        }
+    public void obtenerResultadoDelProde() throws IOException {
+        prodeService.juego();
     }
 
 }

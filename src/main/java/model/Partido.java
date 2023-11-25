@@ -3,11 +3,8 @@ package model;
 import lombok.*;
 
 @Data
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 public class Partido {
 
     private Integer id;
@@ -16,26 +13,31 @@ public class Partido {
     private int golesEquipo1;
     private int golesEquipo2;
 
-    public ResutladoEnum resultado(Equipo e){
-        ResutladoEnum resutladoEnum = null;
+    public ResultadoEnum resultado(Equipo e){
+        ResultadoEnum resultadoEnum = null;
         if(e.getNombre().equals(equipo1.getNombre())){
             if(this.golesEquipo1 > golesEquipo2){
-                resutladoEnum = ResutladoEnum.GANADOR;
+                resultadoEnum = ResultadoEnum.GANADOR;
             } else if (this.golesEquipo1 == this.golesEquipo2) {
-                resutladoEnum = ResutladoEnum.EMPATE;
+                resultadoEnum = ResultadoEnum.EMPATE;
             }else{
-                resutladoEnum = ResutladoEnum.PERDEDOR;
+                resultadoEnum = ResultadoEnum.PERDEDOR;
             }
         } else if (e.getNombre().equals(equipo2.getNombre())) {
             if(this.golesEquipo2 > this.golesEquipo1){
-                resutladoEnum = ResutladoEnum.GANADOR;
+                resultadoEnum = ResultadoEnum.GANADOR;
             } else if (this.golesEquipo1 == this.golesEquipo2) {
-                resutladoEnum = ResutladoEnum.EMPATE;
+                resultadoEnum = ResultadoEnum.EMPATE;
             }else{
-                resutladoEnum = ResutladoEnum.PERDEDOR;
+                resultadoEnum = ResultadoEnum.PERDEDOR;
             }
         }
-        return  resutladoEnum;
+        return resultadoEnum;
+    }
+    public Partido(int id,Equipo equipo1, Equipo equipo2){
+        this.id = id;
+        this.equipo1 = equipo1;
+        this.equipo2 = equipo2;
     }
 
 }
